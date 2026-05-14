@@ -51,8 +51,10 @@ const createStudent = async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      dateOfBirth: req.body.dateOfBirth,
-      enrolledCourses: req.body.enrolledCourses || []
+      age: req.body.age,
+      course: req.body.course,
+      year: req.body.year,
+      gpa: req.body.gpa
     };
 
     const response = await mongodb
@@ -83,8 +85,10 @@ const updateStudent = async (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      dateOfBirth: req.body.dateOfBirth,
-      enrolledCourses: req.body.enrolledCourses || []
+      age: req.body.age,
+      course: req.body.course,
+      year: req.body.year,
+      gpa: req.body.gpa
     };
 
     const response = await mongodb

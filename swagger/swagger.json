@@ -15,7 +15,7 @@
     "schemas": {
       "Student": {
         "type": "object",
-        "required": ["firstName", "lastName", "email"],
+        "required": ["firstName", "lastName", "email", "age", "course", "year", "gpa"],
         "properties": {
           "_id": {
             "type": "string",
@@ -34,18 +34,33 @@
             "format": "email",
             "description": "Student's email address"
           },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date",
-            "description": "Student's date of birth"
+          "age": {
+            "type": "integer",
+            "description": "Student's age"
           },
-          "enrolledCourses": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of course IDs the student is enrolled in"
+          "course": {
+            "type": "string",
+            "description": "Student's enrolled course"
+          },
+          "year": {
+            "type": "string",
+            "description": "Student's academic year"
+          },
+          "gpa": {
+            "type": "number",
+            "format": "float",
+            "description": "Student's GPA"
           }
+        },
+        "example": {
+          "_id": "string",
+          "firstName": "Olanya",
+          "lastName": "David",
+          "email": "odavid@gmail.com",
+          "age": 20,
+          "course": "Computer Science",
+          "year": "22",
+          "gpa": 3.8
         }
       },
       "Course": {
