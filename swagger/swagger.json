@@ -65,7 +65,7 @@
       },
       "Course": {
         "type": "object",
-        "required": ["courseName", "courseCode", "instructor"],
+        "required": ["courseName", "instructor", "duration"],
         "properties": {
           "_id": {
             "type": "string",
@@ -75,28 +75,13 @@
             "type": "string",
             "description": "Name of the course"
           },
-          "courseCode": {
-            "type": "string",
-            "description": "Unique code for the course"
-          },
           "instructor": {
             "type": "string",
             "description": "Name of the course instructor"
           },
-          "credits": {
-            "type": "integer",
-            "description": "Number of credits for the course"
-          },
-          "description": {
+          "duration": {
             "type": "string",
-            "description": "Description of the course"
-          },
-          "enrolledStudents": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "description": "List of student IDs enrolled in the course"
+            "description": "Duration of the course"
           }
         }
       },

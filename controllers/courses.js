@@ -48,11 +48,8 @@ const createCourse = async (req, res) => {
   try {
     const course = {
       courseName: req.body.courseName,
-      courseCode: req.body.courseCode,
       instructor: req.body.instructor,
-      credits: req.body.credits,
-      description: req.body.description,
-      enrolledStudents: req.body.enrolledStudents || []
+      duration: req.body.duration
     };
 
     const response = await mongodb
@@ -81,11 +78,8 @@ const updateCourse = async (req, res) => {
 
     const course = {
       courseName: req.body.courseName,
-      courseCode: req.body.courseCode,
       instructor: req.body.instructor,
-      credits: req.body.credits,
-      description: req.body.description,
-      enrolledStudents: req.body.enrolledStudents || []
+      duration: req.body.duration
     };
 
     const response = await mongodb

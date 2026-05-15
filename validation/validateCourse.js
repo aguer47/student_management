@@ -1,12 +1,12 @@
 const validator = require('validator');
 
 const saveCourse = (req, res, next) => {
-  const { courseName, courseCode, instructor, credits, description, enrolledStudents } = req.body || {};
+  const { courseName, instructor, duration } = req.body || {};
 
   // Check required fields
-  if (!courseName || !courseCode || !instructor) {
+  if (!courseName || !instructor || !duration) {
     return res.status(400).json({
-      message: 'Missing required fields: courseName, courseCode, and instructor are required'
+      message: 'Missing required fields: courseName, instructor, and duration are required'
     });
   }
 
@@ -15,25 +15,12 @@ const saveCourse = (req, res, next) => {
     return res.status(400).json({ message: 'courseName must be a non-empty string' });
   }
 
-  if (typeof courseCode !== 'string' || courseCode.trim().length === 0) {
-    return res.status(400).json({ message: 'courseCode must be a non-empty string' });
-  }
-
   if (typeof instructor !== 'string' || instructor.trim().length === 0) {
     return res.status(400).json({ message: 'instructor must be a non-empty string' });
   }
 
-  // Optional fields validation
-  if (credits !== undefined && (!Number.isInteger(credits) || credits < 0)) {
-    return res.status(400).json({ message: 'credits must be a non-negative integer' });
-  }
-
-  if (description && typeof description !== 'string') {
-    return res.status(400).json({ message: 'description must be a string' });
-  }
-
-  if (enrolledStudents && !Array.isArray(enrolledStudents)) {
-    return res.status(400).json({ message: 'enrolledStudents must be an array' });
+  if (typeof duration !== 'string' || duration.trim().length === 0) {
+    return res.status(400).json({ message: 'duration must be a non-empty string' });
   }
 
   next();
