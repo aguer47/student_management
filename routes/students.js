@@ -3,6 +3,9 @@ const router = express.Router();
 
 const studentsController = require('../controllers/students');
 const validation = require('../validation/validate');
+const { isAuthenticated } = require('../middleware/auth');
+
+router.use(isAuthenticated);
 
 router.get('/', studentsController.getAll);
 

@@ -1,16 +1,21 @@
 const express = require('express');
+const cors = require('cors');
 const dotenv = require('dotenv');
+
+// Load environment variables FIRST
+dotenv.config();
+
 const session = require('express-session');
 const passport = require('./config/passport');
 const mongodb = require('./data/database');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger/swagger.json');
 
-dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 
 // Session middleware

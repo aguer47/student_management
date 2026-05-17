@@ -3,6 +3,9 @@ const router = express.Router();
 
 const coursesController = require('../controllers/courses');
 const { saveCourse } = require('../validation/validateCourse');
+const { isAuthenticated } = require('../middleware/auth');
+
+router.use(isAuthenticated);
 
 router.get('/', coursesController.getAll);
 

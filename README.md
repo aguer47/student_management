@@ -122,12 +122,24 @@ Or use an online generator for a 32+ character random string.
 Create a `.env` file in the root directory:
 
 ```env
+# Remote MongoDB / Atlas connection string
 MONGODB_URI=your_mongodb_connection_string
+
+# Or use a local MongoDB instance for development
+# MONGODB_LOCAL_URI=mongodb://127.0.0.1:27017/student_management
+
 GOOGLE_CLIENT_ID=your_google_oauth_client_id
 GOOGLE_CLIENT_SECRET=your_google_oauth_client_secret
 GOOGLE_CALLBACK_URL=http://localhost:8080/auth/google/callback
 SESSION_SECRET=your_random_session_secret
 ```
+
+## Local development
+
+- Start the server: `npm run dev`
+- Open the local API base URL: `http://localhost:8080`
+- Local students endpoint: `GET http://localhost:8080/students`
+- The app will connect to MongoDB using `MONGODB_URI` / `MONGODB_URL` / `DATABASE_URL` / `MONGODB_LOCAL_URI`
 
 ## Testing the API
 
